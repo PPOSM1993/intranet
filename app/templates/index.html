@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+    {% block content %}
+
+    <div class="container">
+        <br />
+        <br />
+        <h2 class="text-center text-uppercase display-4">Lift Servicios - Intranet</h2>
+        <br />
+        <div class="form-group container d-flex">
+            <div class="col-sm-6 sm-3">
+                <img src="static/img/logo1-removebg-preview.png" style="width: 350px">
+            </div>
+            <div class="col-sm-2 sm-1">
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <a class="btn btn-primary" href="{{ url_for('login') }}" role="button">Iniciar Sesión</a>
+            </div>
+            <div class="col-sm-2 sm-1"> 
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <a class="btn btn-primary" href="{{ url_for('registro') }}" role="button">Registrarse</a>
+            </div>
+        </div>
+        <br />
+            <small class="text-muted">
+                <p class="text-center" style="color: black">
+                    Copyright&copy; 2020 - Página creada por Pedro Pablo Osorio San Martín  - Todos los derechos reservados
+                </p>
+            </small>
+    </div>
+    {% endblock %}

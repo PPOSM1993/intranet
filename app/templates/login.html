@@ -1,0 +1,92 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<section class="">
+		<div class="container">
+		<br />
+		<br />
+		<h1 class="text-center text-uppercase display-4">Iniciar Sesión</h1>
+		<br />
+		<legend class="border-bottom mb-4"></legend>
+			<legend class="bottom-border mb-4"></legend>
+			<form method="POST", action="" class="text-center">
+				{{ form.hidden_tag() }}
+					<fieldset class="form-group">
+				<br />
+			<div class="col-sm-12 sm-6">
+				<div class="form-group">
+					{% if form.email.errors %}
+					{{ form.email(class="form-control form-control-sm is-invalid", placeholder="Email") }}
+					<div class="invalid-feedback">
+						{% for error in form.email.errors %}
+							<span> {{ error }} </span>
+						{% endfor %}
+						</div>
+					{% else %}
+					{{ form.email(class="form-control form-control-sm", placeholder="Email") }}
+					{% endif %}
+				</div>
+				<br />
+				<div class="form-group">
+					{% if form.password.errors %}
+						{{ form.password(class="form-control form-control-sm is-invalid", placeholder="Contraseña") }}
+						<div class="invalid-feedback">
+							{% for error in form.password.errors %}
+								<span> {{ error }} </span>
+							{% endfor %}
+						</div>
+					{% else %}
+						{{ form.password(class="form-control form-control-sm", placeholder="Contraseña") }}
+					{% endif %}
+				</div>
+				<br />
+				<div class="form-check">
+					{{ form.remember(class="form-check-input") }}
+					{{ form.remember.label(class="form-check-label") }}
+				</div>
+				<br />
+				<div class="form-group col text-center">
+				{{ form.enviar(class="btn btn-primary") }}
+				</div>
+				<br />
+				{% with messages = get_flashed_messages(with_categories=true) %}
+   					{% if messages %}
+   						{% for category, message in messages %}
+   							<div class="alert alert-success alert-dismissible fade show text-center {{ category }} col" role="alert">
+   								  	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    									<span aria-hidden="true">&times;</span>
+  									</button>
+   								{{ message }}
+   							</div>
+    					{% endfor %}
+    				{% endif %}
+    			{% endwith %}
+				<br />
+				<br />
+				<div class="border-top pt-3 container">
+					<br />
+					<small class="text-muted">
+						<p class="text-center" style="color: black"><a href="#">¿Olvidó su Contraseña?
+						</p>
+					</small>
+					<small class="text-muted">
+					<p class="text-center" style="color: black">
+						¿Todavía no posee una cuenta? <a href="{{ url_for('registro') }}">Registrase</a>
+					</p>
+					</small>
+					<small class="text-muted">
+					<p class="text-center" style="color: black">
+						<a href="{{ url_for('index') }}">Volver a Inicio</a>
+					</p>
+					</small>
+				</div>
+				<div class="border-top pt-3 container">
+				</div>
+				<br />
+				</div>
+				</fieldset>
+			</form>
+			<br />
+	</div>
+</section>
+{% endblock %}

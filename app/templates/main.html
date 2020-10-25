@@ -1,0 +1,67 @@
+{% extends 'layout.html' %} {% block content%}
+<header class="site-header">
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-dark bg" style="background-color: #F39B39;">
+            <a class="navbar-brand" href="">
+                <img src="static/img/logo1-removebg-preview.png" alt="" width="120" style="margin-top: -15px;">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" style="font-weight: bolder;
+                        color:#000000;">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="" style="padding-left: 105px; color:#000000">PERFIL DE USUARIO
+                                    <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="" style="padding-left: 105px;
+                                    color:#000000">CERRAR SESIÓN</a>
+                    </li>
+
+
+
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<br/>
+
+<body>
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %} {% for category, message in messages %}
+        <div class="alert alert-success text-center {{ category }} col" role="alert">
+              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span></button>
+            {{ message }}
+        </div>
+        {% endfor %} {% endif %} {% endwith %}
+    </div>
+    <br />
+    <br />
+
+    <div class="container">
+        <div class="row">
+            <div class="dropdown" style="right: auto; left:40%;" -webkit-transform: translate(-50%, 0); -o-transform: translate(-50%, 0); transform: translate(-50%, 0);>
+                <button class="btn btn-secondary dropdown-toggle" style="background-color: dodgerblue" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Selecciones una Opción
+  </button>
+                <div class="dropdown-menu" s aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="{{ url_for('camiones') }}">Camiones</a>
+                    <a class="dropdown-item" href="{{ url_for('maquinas') }}">Máquinas</a>
+                    <a class="dropdown-item" href="#">Repuestos</a>
+                    <a class="dropdown-item" href="#">Servicios de Aseo</a>
+<a class="dropdown-item" href="#">Clientes</a>
+                    <a class="dropdown-item" href="#">Trabajadores</a>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+{% endblock %}
